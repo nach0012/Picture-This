@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Picture This!</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -15,8 +15,35 @@
       <h1>Picture This!</h1>
       <h4>My Really Cool Blog Post</h4>
     </div>
-    <img src="images/museum.jpg" alt="placeholder">
 
+    <!-- For the image editing I used two diffrent program, for landscape image I used (derivv) (480px,960,1440px)-->
+    <!-- Square image I Used (photopea) (480px, 960px,1440px)-->
+    <!-- Note: 18 images created as per assignment requirements (9 landscape + 9 square).
+     This HTML uses 6 images - browser selects based on viewport and pixel density.-->
+    <!-- I used Art direction for the responding images that allow the image displayed to suit different image display sizes-->
+
+    <picture>
+      <!--  Square images for viewports 960px and above and the images will display at 50% viewport width-->
+      <!-- Browser selects 1x, 2x, or 3x based on screen pixel density -->
+      <!-- I started with the largest media beacuse the largest should be on the top followed by the smaller values-->
+      <source media="(min-width: 960px)" srcset="
+            images/museum-square-480px.jpg  1x,
+            images/museum-square-960px.jpg  2x,
+            images/museum-square-1440px.jpg 3x
+          " />
+
+      <!--Landscape images for viewports below 960px-->
+      <!-- Image will displays at 100% viewport width -->
+      <!-- Browser selects 1x, 2x, or 3x based on screen pixel density -->
+
+      <source media="(max-width: 959px)" srcset="
+            images/museum-landscape-480px.jpg  1x,
+            images/museum-landscape-960px.jpg  2x,
+            images/museum-landscape-1440px.jpg 3x
+          " />
+
+      <img src="images/museum-landscape-960px.jpg" alt=" museum gallery " />
+    </picture>
   </header>
 </body>
 
