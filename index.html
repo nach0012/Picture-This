@@ -7,7 +7,6 @@
     <title>Picture This!</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
     <header class="header">
       <div class="title">
@@ -19,14 +18,16 @@
       <!-- Square image I Used photopea -->
       <!-- All 18 required images created (9 landscape + 9 square)
          Browser automatically selects the most appropriate image based on:
-         - Viewport size (desktop vs mobile)-->
+         - Viewport size (desktop vs mobile)Screen resolution and pixel density-->
 
       <picture>
         <!-- I used Art direction for the responding images that allow the image displayed to suit different image display sizes-->
 
-        <!--  Square images for viewports 960px and above and the images will display at 50% viewport width-->
-
-        <!-- I started with the largest media because the largest should be on the top followed by the smaller values-->
+        <!--  Square images for viewports 960px and above
+           Images displayed at 50% viewport width (50vw) 
+           Browser selects optimal image from 9 square sizes based on viewport and pixel density
+           The (W) means "this image in pixels wide
+            I started with the largest media because the largest should be on the top followed by the smaller values-->
 
         <source
           media="(min-width: 960px)"
@@ -42,11 +43,13 @@
             images/museum-square-2400px.jpg 2400w
           "
           sizes="50vw"
+          type="image/jpeg"
         />
 
-        <!--  Landscape images for viewports below 960px -->
-        <!-- Image displays at 100% viewport width  -->
-
+        <!-- Landscape images for viewports below 960px
+           Images displayed at 100% viewport width (100vw) 
+           Browser selects optimal image from 9 landscape sizes based on viewport and pixel density
+            -->
         <source
           media="(max-width: 959px)"
           srcset="
@@ -61,9 +64,13 @@
             images/museum-landscape-2880px.jpg 2880w
           "
           sizes="100vw"
+          type="image/jpeg"
         />
 
-        <img src="images/museum-landscape-960px.jpg" alt="Art museum gallery" />
+        <img
+          src="images/museum-landscape-960px.jpg"
+          alt="Art museum gallery with blue-grey walls covered in classical paintings and blue seating benches"
+        />
       </picture>
     </header>
   </body>
